@@ -2,3 +2,7 @@ define roll_dice :
     dice_roll=random_number
     print(random_number)
     return random_number
+define total_score :
+    total_score=random_number + random_number2 + random_number3 + random_number4 + random_number5
+    return total_score
+    
