@@ -1,3 +1,4 @@
-ask user to roll dice
-dice_roll=random_number
-print(random_number)
+define roll_dice :
+    dice_roll=random_number
+    print(random_number)
+    return random_number
