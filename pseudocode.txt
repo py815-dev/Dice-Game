@@ -1,0 +1,3 @@
+ask user to roll dice
+dice_roll=random_number
+print(random_number)
