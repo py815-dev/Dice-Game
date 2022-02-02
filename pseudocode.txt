@@ -1,4 +1,30 @@
-open_file ("top 5 scores") :                                                                                         
-if totalscore = > 49 store in file ("top 5 scores")                       
-show file (" top 5 scores")   
-print ("these are the top 5 scores") :  
+@@ -1,29 +1,4 @@
+define roll_dice :
+    dice_roll=random_number
+    print(random_number)
+    return random_number
+define total_score :
+    total_score=random_number + random_number2 + random_number3 + random_number4 + random_number5
+    return total_score
+
+define authenticate(username, password)
+    valid = False
+    authenticated = False
+    users = open("users.json")
+    users_json = json.loadfile(users)
+    IF username IN users_json.keys:
+        valid = True
+    IF username["password"] == password:
+        authenticated = True
+    IF authenticated = False:
+        print("Your password does not match your username. Please try again.")
+        return False # This means an error has occurred.
+    ELSE IF valid = False:
+        print("Sorry, that is not a valid username. Please try again.")
+        return False
+    ELSE IF valid = True AND authenticated = True:
+        print("You have successfully logged in.")
+        return True
+    ELSE:
+        print("Sorry, an error occurred whilst logging in.")
+        return False # An error has occurred, so not authenticated. Useful if program is misused.
