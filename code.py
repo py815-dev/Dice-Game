@@ -1,4 +1,45 @@
 import json # Used to store scores in a file
+import random # Used to generate random numbers. But you knew that already. Right?
+
+# Variables
+SCORE = 0 # Int
+
+# The user is based on a class object. An example can be seen here: https://www.w3schools.com/python/trypython.asp?filename=demo_class3
+
+class User:
+    def __init__(name):
+        self.name = name
+        self.score = 0
+        self.highscore = self.get_high_score()
+    
+    def add_to_score(number):
+        self.score += number # Add the given number to the score.
+        if self.score > self.get_high_score():
+            # TODO write new highscore to file
+        
+    def subtract_from_score(number):
+        for _ in range(number):
+            if self.score != 0: # The user's score cannot be less than zero
+                self.score -= number
+                
+    def get_high_score():
+        file = open(f"{self.name}.json", "r") # The user's highscore is stored in a json file
+        json_file = json.loads(file)
+        score = json_file["highscore"]
+        return int(score)
+
+def create_user(name:str, password:str):
+    open(f"{name}.json", "x")
+    with open(f"{name}.json", "w+", encoding='utf-8') as file:
+        file_contents = {"highscore": 0}
+        json.dump(file_contents, file) # Write the above data to the file
+    original = open("users.json", "r").read().replace("\n", "")
+    with open("users.json", "w", encoding='utf-8') as file:
+        new_data = {name:password}
+        file_json = json.loads(file)
+        file_json.update(new_data)
+        file.close()
+    return
 
 def roll_dice():
     dice_roll=random_number
