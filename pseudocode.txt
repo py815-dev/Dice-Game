@@ -36,3 +36,6 @@ define authenticate(username, password)
     ELSE:
         print("Sorry, an error occurred whilst logging in.")
         return False # An error has occurred, so not authenticated. Useful if program is misused.
+        
+        #winners.txt displays the winners i n tjue [rpgra,
+        #top_5.json would display thetop5 scorers 
