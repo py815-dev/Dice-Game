@@ -11,7 +11,9 @@ define total_score :
     total_score = open("winners.txt") 
 
 define top_5:
-#allow players to view top 5 scores from an external file. 
+top_5 = open("top5.json.")
+view top_5
+#allow players to view their username and score in an external file.
 
 define authenticate(username, password)
     valid = False
