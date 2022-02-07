@@ -100,7 +100,11 @@ def total_score(
 def authenticate(username, password):
     valid = False
     authenticated = False
-    users = open("users.json", "r")
+    try:
+        users = open("users.json", "r")
+    except FileNotFoundError:
+        open("users.json", "x") # Create the file, as it doesn't exist yet.
+        users = open("users.json", "r")
     users_json = json.load(users)  # Load into a dict object
     if (
         users_json.get(username) is not None
@@ -138,6 +142,8 @@ def authenticate_user(
             username = get_user_input(
                 "What would you like your username to be?", "text"
             )
+            if not os.path.exists("users.json"):
+                open("users.json", "x") # Create the file as it does not exist yet.
             if not str(username) in open("users.json", "r").read():
                 username_taken = False
             else:
