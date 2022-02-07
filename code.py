@@ -64,7 +64,11 @@ def create_user(name: str, password: str):
     with open(f"{name}.json", "w+", encoding="utf-8") as file:
         file_contents = {"highscore": 0}
         json.dump(file_contents, file)  # Write the above data to the file
-    original = open("users.json", "r").read().replace("\n", "")
+    try:
+        original = open("users.json", "r").read().replace("\n", "")
+    except FileNotFoundError: # The users file does not exist, could happen on first program run
+        open("users.json", "x") # Create the file
+        original = open("users.json", "r").read().replace("\n", "") # It should exist now
     with open("users.json", "w", encoding="utf-8") as file:
         new_data = {name: password}
         file_json = json.loads(original)
