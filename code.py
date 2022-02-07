@@ -1,4 +1,3 @@
-from ast import While
 import json
 import os  # Used to store scores in a file
 import random
