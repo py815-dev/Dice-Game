@@ -8,6 +8,12 @@ from typing import (
 
 # Variables
 SCORE = 0  # Int
+SCORE_TABLE = """
+Player  |  Score
+--------+---------
+{}      |  {}
+{}      |  {}
+"""
 GREETING_TEXT = """
 Welcome to the dice game! The rules are available here:
 https://docs.google.com/document/d/1ol2KMvte6Y9FdqIF5vlPE5lkmRVe6RQQXq8v0gjSaLw/edit
@@ -219,6 +225,7 @@ def main():
             print(
                 f"The game has ended. The winner is {str(player_1.name) if player_1.score > player_2.score else str(player_2.name) } with a score of {str(player_1.score) if player_1.score > player_2.score else str(player_2.score)}!"
             )
+            print(SCORE_TABLE.format(player_1.name, str(player_1.score), player_2.name, str(player_2.score)))
             print("Thank you for playing!")
             exit()
 
