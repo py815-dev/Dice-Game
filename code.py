@@ -11,8 +11,8 @@ SCORE = 0  # Int
 SCORE_TABLE = """
 Player  |  Score
 --------+---------
-{}      |  {}
-{}      |  {}
+{}:      {}
+{}:      {}
 """
 GREETING_TEXT = """
 Welcome to the dice game! The rules are available here:
