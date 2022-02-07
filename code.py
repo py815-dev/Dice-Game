@@ -170,6 +170,7 @@ def authenticate_user(
                 print("Sorry, that didn't match. Please try again.")
     else:
         print("Invalid option. Exiting program...")
+        exit()
 
 
 def main():
