@@ -1,10 +1,10 @@
-import json
-import os  # Used to store scores in a file
-import random
-import time
+import json # This format is used on the score and authentication files
+import os  # Used to check if a file exists
+import random # Used to generate random numbers. But you knew that already. Right?
+import time # Used to create delays
 from typing import (
     Optional,
-)  # Used to generate random numbers. But you knew that already. Right?
+)  # Used toi create optional function arguments
 
 # Variables
 SCORE = 0  # Int
@@ -65,7 +65,10 @@ class User:
 
 
 def create_user(name: str, password: str):
-    open(f"{name}.json", "x")
+    try:
+        open(f"{name}.json", "x") 
+    except FileNotFoundError: # Windows does not allow some file names, for example COM1, and raises a file not found error on trying to create one
+        print("Sorry, that is an invalid name for a user. Exiting program...")
     with open(f"{name}.json", "w+", encoding="utf-8") as file:
         file_contents = {"highscore": 0}
         json.dump(file_contents, file)  # Write the above data to the file
