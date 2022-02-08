@@ -131,7 +131,7 @@ def authenticate(username, password):
         print("Sorry, that is not a valid username. Please try again.")
         return False
     elif valid == True and authenticated == True:
-        print(f"You have successfully logged inas {username}. Your high score is 0")
+        print(f"You have successfully logged in as {username}. Your high score is 0")
         return True
     else:
         print("Sorry, an error occurred whilst logging in.")
