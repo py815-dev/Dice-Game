@@ -131,7 +131,8 @@ def authenticate(username, password):
         print("Sorry, that is not a valid username. Please try again.")
         return False
     elif valid == True and authenticated == True:
-        print(f"You have successfully logged inas {username}. Your high score is 0")
+        user = User(username)
+        print(f"You have successfully logged in as {username}. Your high score is {str(user.get_high_score())}")
         return True
     else:
         print("Sorry, an error occurred whilst logging in.")
@@ -239,6 +240,14 @@ def main():
                 f"The game has ended. The winner is {str(player_1.name) if player_1.score > player_2.score else str(player_2.name) } with a score of {str(player_1.score) if player_1.score > player_2.score else str(player_2.score)}!"
             )
             print(SCORE_TABLE.format(player_1.name, str(player_1.score), player_2.name, str(player_2.score)))
+            leaderboard = json.load(open("users.json", "r"))
+            highscore1 = 0
+            for user in leaderboard.keys():
+                user_file = open(f"{user}.json")
+                json_user = json.load(user_file)
+                if json_user["highscore"] > highscore1:
+                    highscore1 = json_user["highscore"]
+            print(f"The high score for this game is: {highscore1}")
             print("Thank you for playing! Press enter to exit...")
             input()
             exit()
