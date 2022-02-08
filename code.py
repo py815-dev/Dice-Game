@@ -131,7 +131,7 @@ def authenticate(username, password):
         print("Sorry, that is not a valid username. Please try again.")
         return False
     elif valid == True and authenticated == True:
-        print(f"You have successfully logged in as {username}. Your high score is 0")
+        print(f"You have successfully logged inas {username}. Your high score is 0")
         return True
     else:
         print("Sorry, an error occurred whilst logging in.")
@@ -194,14 +194,19 @@ def main():
         print("Round {}.".format(iteration_counter))
         player_1_round_total = 0
         player_2_round_total = 0
-        for dice_roll in range(1, 2):  # Each player rolls two 6 sided dice
+        for dice_roll in range(1, 3):  # Each player rolls two 6 sided dice
             player_1_roll = roll_dice()
             print(
                 f"On their {'first' if dice_roll == 1 else 'second'} go, {player_1.name} rolled: ",
                 str(player_1_roll),
             )  # Prints first if the roll is the first one, if not it prints second.
             player_1_round_total += player_1_roll
-            player_1.add_to_score(player_1_roll)
+            if dice_roll == 2 and player_1_round_total % 2 == 0:
+                print("Your score was even! Adding 10 points...")
+                player_1.add_to_score(10)
+            elif dice_roll == 2 and player_1_round_total % 2 != 0:
+                print("Your score was odd :( Subtracting 5 from your score...")
+                player_1.subtract_from_score(5)
             print("Rolling for player 2...")
             time.sleep(2)
             player_2_roll = roll_dice()
@@ -210,7 +215,12 @@ def main():
                 str(player_1_roll),
             )
             player_2_round_total += player_2_roll
-            player_2.add_to_score(player_2_roll)
+            if dice_roll == 2 and  player_2_round_total % 2 == 0:
+                print("Your score was even! Adding 10 points...")
+                player_2.add_to_score(10)
+            elif  dice_roll == 2 and player_2_round_total % 2 != 0:
+                print("Your score was odd :( Subtracting 5 from your score...")
+                player_1.subtract_from_score(5)
             time.sleep(2)
         print(
             f"Round total:\n{player_1.name}: {player_1_round_total}\n{player_2.name}: {player_2_round_total}"
