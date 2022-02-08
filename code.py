@@ -131,7 +131,7 @@ def authenticate(username, password):
         print("Sorry, that is not a valid username. Please try again.")
         return False
     elif valid == True and authenticated == True:
-        print(f"You have successfully logged in as {username}. Your high score is 0")
+        print(f"You have successfully logged inas {username}. Your high score is 0")
         return True
     else:
         print("Sorry, an error occurred whilst logging in.")
@@ -239,7 +239,8 @@ def main():
                 f"The game has ended. The winner is {str(player_1.name) if player_1.score > player_2.score else str(player_2.name) } with a score of {str(player_1.score) if player_1.score > player_2.score else str(player_2.score)}!"
             )
             print(SCORE_TABLE.format(player_1.name, str(player_1.score), player_2.name, str(player_2.score)))
-            print("Thank you for playing!")
+            print("Thank you for playing! Press enter to exit...")
+            input()
             exit()
 
 
