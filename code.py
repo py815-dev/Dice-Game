@@ -261,7 +261,7 @@ def main():
             counter  = 0
             print("The overall top scores for this game (in order) are:")
             usernames, top_5 = leaderboard()
-            for x in range(0,4):
+            for x in range(0,len(usernames)): # There may not be 5 players yet
                 print(str(usernames[x])+ ": "+str(top_5[x]))
             print("Thank you for playing! Press enter to exit...")
             input()
