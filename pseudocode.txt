@@ -37,5 +37,15 @@ define authenticate(username, password)
         print("Sorry, an error occurred whilst logging in.")
         return False # An error has occurred, so not authenticated. Useful if program is misused.
         
-        #winners.txt displays the winners i n tjue [rpgra,
+        #winners.txt displays the winners in the leaderboard [rpgra,
         #top_5.json would display thetop5 scorers 
+
+define  dice_roll
+ dice_roll = randint(1,6) 
+ print("You have rolled dice".)
+ return(dice_roll)
+ 
+ #maincode
+ player_1 = authenticate_user("1")
+ player_2 = authenticate_user("2" player_1=player_1)
+ 
