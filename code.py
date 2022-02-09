@@ -197,10 +197,7 @@ def leaderboard():
     for i in scores:
         top_5.append(i)
         counter += 1
-    new_list = []
-    for i in range(len(top_5)):
-        new_list.append({usernames[i]:top_5[i]})
-    return new_list
+    return usernames, top_5
         
 
 def main():
@@ -263,23 +260,13 @@ def main():
             print(SCORE_TABLE.format(player_1.name, str(player_1.score), player_2.name, str(player_2.score)))
             counter  = 0
             print("The overall top scores for this game (in order) are:")
-            lb = leaderboard()
-            counter = 0
-            for x in lb:
-                i = x.keys()
-                print(i+":"+lb[counter][0])
-                counter += 1
+            usernames, top_5 = leaderboard()
+            for x in range(0,4):
+                print(str(usernames[x])+ ": "+str(top_5[x]))
             print("Thank you for playing! Press enter to exit...")
             input()
             exit()
 
 
 if __name__ == "__main__":
-    lb = leaderboard()
-    counter = 0
-    for x in lb:
-        i = x.keys()
-        print(str(i)+":"+lb[counter][i[counter]])
-        counter += 1
-    print(leaderboard())
     main()
