@@ -182,11 +182,32 @@ def authenticate_user(
         print("Invalid option. Exiting program...")
         exit()
 
+def leaderboard():
+    scores = []
+    usernames = []
+    leaderboard = json.load(open("users.json", "r"))
+    for user in leaderboard.keys():
+        user_file = open(f"{user}.json")
+        json_user = json.load(user_file)
+        scores.append(json_user["highscore"])
+        usernames.append(user)
+    scores.sort(reverse=True)
+    counter = 0
+    top_5 = []
+    for i in scores:
+        top_5.append(i)
+        counter += 1
+    new_list = []
+    for i in range(len(top_5)):
+        new_list.append({usernames[i]:top_5[i]})
+    return new_list
+        
 
 def main():
     print(GREETING_TEXT)
     player_1 = authenticate_user("1")
     player_2 = authenticate_user("2", player_1=player_1)
+    round_wins = []
     iteration_counter = 0  # Used to keep track of what round we are on
     while (
         True
@@ -224,7 +245,7 @@ def main():
                 player_1.subtract_from_score(5)
             time.sleep(2)
         print(
-            f"Round total:\n{player_1.name}: {player_1_round_total}\n{player_2.name}: {player_2_round_total}"
+            f"__Round total__{player_1.name}: {player_1_round_total}\n{player_2.name}: {player_2_round_total}"
         )
         if (
             int(player_1_round_total) == int(player_2_round_total)
@@ -240,18 +261,25 @@ def main():
                 f"The game has ended. The winner is {str(player_1.name) if player_1.score > player_2.score else str(player_2.name) } with a score of {str(player_1.score) if player_1.score > player_2.score else str(player_2.score)}!"
             )
             print(SCORE_TABLE.format(player_1.name, str(player_1.score), player_2.name, str(player_2.score)))
-            leaderboard = json.load(open("users.json", "r"))
-            highscore1 = 0
-            for user in leaderboard.keys():
-                user_file = open(f"{user}.json")
-                json_user = json.load(user_file)
-                if json_user["highscore"] > highscore1:
-                    highscore1 = json_user["highscore"]
-            print(f"The high score for this game is: {highscore1}")
+            counter  = 0
+            print("The overall top scores for this game (in order) are:")
+            lb = leaderboard()
+            counter = 0
+            for x in lb:
+                i = x.keys()
+                print(i+":"+lb[counter][0])
+                counter += 1
             print("Thank you for playing! Press enter to exit...")
             input()
             exit()
 
 
 if __name__ == "__main__":
+    lb = leaderboard()
+    counter = 0
+    for x in lb:
+        i = x.keys()
+        print(str(i)+":"+lb[counter][i[counter]])
+        counter += 1
+    print(leaderboard())
     main()
