@@ -10,10 +10,10 @@ define total_score :
     #loop all scores in game to find largest in file. write score and name. 
     total_score = open("winners.txt") 
 
-define top_5:
-top_5 = open("top5.json.")
-view top_5
-#allow players to view their username and score in an external file.
+define top_5_score:
+top_5_score = open("top5score.json.")
+view top_5_score
+#this will allow players to view the top 5 users who have scored the most on the dice game.
 
 define authenticate(username, password)
     valid = False
