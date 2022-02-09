@@ -48,4 +48,5 @@ define  dice_roll
  #maincode
  player_1 = authenticate_user("1")
  player_2 = authenticate_user("2" player_1=player_1)
+ #this means that the player is going to be checked on wether or not is authenticated and can be allowed in.
  
