@@ -46,7 +46,12 @@ define  dice_roll
  return(dice_roll)
  
  #maincode
+ print(GREETING TEXT)
  player_1 = authenticate_user("1")
  player_2 = authenticate_user("2" player_1=player_1)
  #this means that the player is going to be checked on wether or not is authenticated and can be allowed in.
+ round_wins = 
+ #round_wins is equals the amount of wins that there is per round. 
+ iteration_counter =+1
+ #the iteration counts the number of iterations there are in the code + 1
  
