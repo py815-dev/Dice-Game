@@ -145,7 +145,7 @@ def authenticate_user(
     print("Welcome user {}!".format(player_number))
     login_or_create = get_user_input(
         "Would you like to log in or create an account?", "login/create"
-    )
+    ).lower()
     if login_or_create == "create":
         username_taken = True
         while username_taken == True:
