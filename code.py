@@ -4,7 +4,7 @@ import random # Used to generate random numbers. But you knew that already. Righ
 import time # Used to create delays
 from typing import (
     Optional,
-)  # Used toi create optional function arguments
+)  # Used to create optional function arguments
 
 # Variables
 SCORE = 0  # Int
@@ -242,7 +242,7 @@ def main():
                 player_1.subtract_from_score(5)
             time.sleep(2)
         print(
-            f"__Round total__{player_1.name}: {player_1_round_total}\n{player_2.name}: {player_2_round_total}"
+            f"__Round total__\n{player_1.name}: {player_1_round_total}\n{player_2.name}: {player_2_round_total}"
         )
         if (
             int(player_1_round_total) == int(player_2_round_total)
