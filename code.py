@@ -172,10 +172,11 @@ def authenticate_user(
             username = get_user_input("Please enter your username: ", "text")
             password = get_user_input("Please enter your password: ", "text")
             if authenticate(username, password):
-                if User(username) == player_1:
-                    print("Sorry, you are already logged in.")
-                else:
-                    return User(username)
+                if player_1 is not None:
+                    if User(username).name == player_1.name:
+                        print("Sorry, you are already logged in.")
+                        exit()
+                return User(username)
             else:
                 print("Sorry, that didn't match. Please try again.")
     else:
