@@ -161,7 +161,7 @@ def authenticate_user(
                     "Sorry, that username is already taken. Please try again with another username."
                 )
         password = get_user_input(
-            "What would you like your password to be? (Caution - plain text!)",
+            "What would you like your password to be? (Caution - plain text!)", #able to be read in a file 
             "text",
         )
         user = create_user(username, password)
