@@ -63,7 +63,7 @@ class User:
             json.dumps(json_original)
         )  # The new value has been added to the json
 
-        
+
 def create_user(name: str, password: str):
     try:
         open(f"{name}.json", "x") 
@@ -236,7 +236,7 @@ def main():
             )
             player_2_round_total += player_2_roll
             if dice_roll == 2 and  player_2_round_total % 2 == 0:
-                print("Your score was even! Adding 10 points...")
+                print("Your score was even! :) Adding 10 points...")
                 player_2.add_to_score(10)
             elif  dice_roll == 2 and player_2_round_total % 2 != 0:
                 print("Your score was odd :( Subtracting 5 from your score...")
