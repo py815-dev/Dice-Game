@@ -63,7 +63,7 @@ class User:
             json.dumps(json_original)
         )  # The new value has been added to the json
 
-
+        
 def create_user(name: str, password: str):
     try:
         open(f"{name}.json", "x") 
