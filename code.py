@@ -174,7 +174,8 @@ def authenticate_user(
             if authenticate(username, password):
                 if player_1 is not None:
                     if User(username).name == player_1.name:
-                        print("Sorry, you are already logged in.")
+                        print("Sorry, you are already logged in. The program will now close in order for you to re-input your information.")
+                        print("If this happens,you can always create a new accountfor your dice game.")
                         exit()
                 return User(username)
             else:
