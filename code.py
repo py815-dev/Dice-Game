@@ -182,6 +182,7 @@ def authenticate_user(
                 print("Sorry, that didn't match. Please try again.")
     else:
         print("Invalid option. Exiting program...")
+        print("You may have entered an invalid character, or spelt something wrong.")
         exit()
 
 def leaderboard():
