@@ -389,7 +389,7 @@ def roll():
 
 
 <div id="nav01" class="w3-bar-block">
-  <a class="w3-button w3-hover-blue w3-hide-large w3-large w3-right" href="javascript:void(0)" onclick="w3_close()">x</a>
+  <a class="w3-button w3-hover-blue w3-hide-large w3-large w3-right" href="javascript:void(0)" onclick="w3_close()">×</a>
   <a class="w3-bar-item w3-button" href="#"></a>
   <a class="w3-bar-item w3-button" href="#"></a>
 </div>
@@ -397,7 +397,7 @@ def roll():
 
 <div id="nav03">
   <div class="w3-container w3-border-bottom">
-    <h1 class="w3-text-theme">"""+f"Round {str(round_number)} Score"+"""</h1>
+    <h1 class="w3-text-theme">Game Total</h1>
     <h2>"""+player_2.name+""" - """+str(player_2.score)+"""</h2>
     <h2>"""+player_1.name+""" - """+str(player_1.score)+"""</h2>
   </div>
@@ -481,7 +481,7 @@ w3CodeColor();
 
 <div id="nav03">
   <div class="w3-container w3-border-bottom">
-    <h1 class="w3-text-theme">Game total</h1>
+    <h1 class="w3-text-theme">"""+f"Round {str(round_number)} Score"+"""</h1>
     <h2>"""+player_2.name+""" - """+str(player_2.score)+"""</h2>
     <h2>"""+player_1.name+""" - """+str(player_1.score)+"""</h2>
   </div>
